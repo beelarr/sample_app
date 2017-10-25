@@ -11,4 +11,7 @@ Rails.application.routes.draw do
 
   get 'static_pages/contact'
 
+  get '/signup', to: 'users#new'
+
+
 end
