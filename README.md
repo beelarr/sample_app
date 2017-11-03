@@ -1,9 +1,5 @@
-# Ruby on Rails Tutorial sample application
-
-This is the sample application for
-[*Ruby on Rails Tutorial:
-Learn Web Development with Rails*](http://www.railstutorial.org/)
-by [Michael Hartl](http://www.michaelhartl.com/).
+# Ruby on Rails Sample App
+### [Deployed here via Heroku](https://radiant-lowlands-31493.herokuapp.com/)
 
 ## License
 
