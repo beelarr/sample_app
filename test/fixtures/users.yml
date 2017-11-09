@@ -12,3 +12,8 @@ bryon:
   name: Bryon Larrance
   email: bryonl@me.com
   password_digest: <%= User.digest('password') %>
+
+dilbert:
+  name: Dilbert B. Collins
+  email: dilbert@collins.com
+  password_digest: <%= User.digest('password')%>
