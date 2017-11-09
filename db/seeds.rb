@@ -1,9 +1,11 @@
 require 'faker'
 
-User.create!(name: 'Example User',
-             email: 'example@example.com',
-             password: 'foobar',
-             password_confirmation: 'foobar')
+User.create!(name: 'Bryon Larrance',
+             email: 'bryonl@me.com',
+             password: '2013258',
+             password_confirmation: '2013258',
+             admin: true
+)
 100.times do |n|
   d = Faker::App.name
   name = Faker::Name.unique.name

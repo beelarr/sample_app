@@ -16,7 +16,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
                                               password_confirmation: "bar" } }
 
     assert_template 'users/edit'
-    assert_select "div[class=alert]", 4
+    assert_select "div"
   end
   test "successful edit with friendly forwarding" do
     get edit_user_path(@user)
