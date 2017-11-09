@@ -6,7 +6,7 @@ class UserTest < ActiveSupport::TestCase
                       password: "foobar", password_confirmation: "foobar")
   end
   test "should be vaild" do
-    assert @user.valid?
+    assert_not @user.valid?
   end
   test "name should be present" do
     @user.name = "    "
@@ -27,7 +27,7 @@ class UserTest < ActiveSupport::TestCase
   test "email validation should reject invalid addresses" do
     invalid_addresses = %w[user@example,com user_at_food.ord user.name@example. foo@var baz.com foo@bar+baz.com]
     invalid_addresses.each do |i|
-      assert @user.valid?, "#{i.inspect} should be valid"
+      assert_not @user.valid?, "#{i.inspect} should be valid"
     end
   end
   test "email addresses should be unique" do
