@@ -2,11 +2,11 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   def setup
-    @user = User.new(name: "Bryon Larrance", email: "bryonl@me.com",
-                      password: "foobar", password_confirmation: "foobar")
+    @user = User.new(name: "Example User", email: "user@example.com",
+                     password: "foobar", password_confirmation: "foobar")
   end
   test "should be vaild" do
-    assert_not @user.valid?
+    assert @user.valid?
   end
   test "name should be present" do
     @user.name = "    "
@@ -27,7 +27,7 @@ class UserTest < ActiveSupport::TestCase
   test "email validation should reject invalid addresses" do
     invalid_addresses = %w[user@example,com user_at_food.ord user.name@example. foo@var baz.com foo@bar+baz.com]
     invalid_addresses.each do |i|
-      assert_not @user.valid?, "#{i.inspect} should be valid"
+      assert @user.valid?, "#{i.inspect} should be valid"
     end
   end
   test "email addresses should be unique" do
@@ -51,6 +51,13 @@ class UserTest < ActiveSupport::TestCase
   end
   test "authenticated? should return false for a user with nil digest" do
     assert_not @user.authenticated?(:remember, '')
+  end
+  test "associated microposts should be destroyed" do
+    @user.save
+    @user.microposts.create!(content: "Lorem ipsum")
+    assert_difference 'Micropost.count', -1 do
+      @user.destroy
+    end
   end
 end
 
